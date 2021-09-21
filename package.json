@@ -1,0 +1,35 @@
+{
+  "name": "staff-management",
+  "version": "1.0.0",
+  "description": "staff management service",
+  "main": "src/app.js",
+  "scripts": {
+    "init": "npm install && npm run db-migrate-dev && npm run db-seeder && npm test",
+    "start": "node src/app.js",
+    "test": "npx eslint . --fix && mocha tests/**/*.test.js --timeout=60000 --verbose --exit",
+    "db-migrate-dev": "npx sequelize-cli db:migrate --env development",
+    "undo-db-migrate-dev": "npx sequelize-cli db:migrate:undo:all --env development",
+    "db-seeder": "npx sequelize-cli db:seed:all --env development"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "assert-plus": "^1.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "expect.js": "^0.3.1",
+    "express": "^4.17.1",
+    "express-validator": "^6.12.1",
+    "mocha": "^9.1.1",
+    "sequelize": "^6.6.5",
+    "sequelize-cli": "^6.2.0",
+    "sinon": "^11.1.2",
+    "sqlite3": "^5.0.2",
+    "underscore": "^1.13.1",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "babel-register": "^6.26.0",
+    "eslint": "^7.32.0"
+  }
+}

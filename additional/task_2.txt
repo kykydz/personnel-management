@@ -1,0 +1,19 @@
+The following Dockerfile has been prepared for the application from the test task
+
+# Optimize this variant
+
+FROM ubuntu:18.04 
+COPY ./src /app 
+RUN apt-get update -y 
+RUN apt-get install -y nodejs 
+RUN npm install 
+ENTRYPOINT ["npm"] 
+CMD ["run", "prod"] 
+
+# A better option is:
+
+FROM node:14-slim 
+WORKDIR /usr/app
+COPY package.json /app
+RUN npm install 
+CMD ["node", "src/app.js"]  # assume running apps without npm | study case: current HR project
