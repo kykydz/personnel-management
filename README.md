@@ -1,4 +1,4 @@
-# HR Personal Management
+# HR Personnel Management
 
 ## Description
 This is sample project.
